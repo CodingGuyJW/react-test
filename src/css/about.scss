@@ -1,0 +1,269 @@
+@import "_common.scss";
+
+/* about.scss */
+main::after{
+    content:'';
+    display: block;
+    clear:both;
+}
+body.light {
+    .contLeftAbout p:nth-of-type(2){color:#555;}
+    .contRightAbout {
+        .doContent{color:#555;}
+        .whereContent li{color:#555;}
+    }
+}
+body::-webkit-scrollbar {
+    display: none; 
+    /* width:5px;
+    background:#777; */
+}
+.contAbout{
+    float:right;
+    width:75%;
+    display:flex;
+    .contLeftAbout{
+        position:sticky;
+        top:0;
+        padding:70px;
+        width:50%;
+        height:785px;
+        h2{font-size:2.3rem;}
+        .whoIam{
+            margin:100px 0 30px;
+            font-size: 1.3rem;
+            font-weight: bolder;
+        }
+        .whoIamContent{
+            white-space: pre-line;
+            word-break:keep-all;
+            font-size: 1.8rem;
+            color:#aaa;
+        }
+        .likeImg{
+            margin-top:100px;
+            display:flex;
+            flex-wrap:wrap;
+            span{
+                @include flexCenter;
+                border-radius:50%;
+                width:160px;
+                height:160px;
+            }
+            span:nth-of-type(1){
+                background-color:#444;
+                margin:0 150px;
+            }
+            span:nth-of-type(2){
+                background-color:#777;
+                margin:0 50px;
+            }
+            span:nth-of-type(3){
+                background-color:#aaa;
+                color:#111;
+                font-weight:bold;
+            }
+        }
+    }
+    .contRightAbout {
+        padding:70px;
+        width:50%;
+        p:nth-of-type(1){
+            margin:60px 0 30px;
+        }
+        figure {
+            display: flex;
+            flex-wrap: wrap;
+            img{
+                margin:10px;
+                width:40px;
+            }
+            .bar{
+                border:1px solid #fff;
+                margin-top:10px;
+                width:80%;
+                height:40px;
+                border-radius:5px;
+                background-color:#ccc;
+                
+            }
+            .skills{
+                line-height: 2.5rem;
+                padding:0 10px;
+                background-color: #777;
+                display:inline-block;
+                height:40px;
+                border-radius:5px 0 0 5px;
+                width:20%;
+            }
+            .skillsVal{
+                line-height: 2.5rem;
+                padding:0 10px;
+                background-color: #aaa;
+                display:inline-block;
+                height:40px;
+            }
+        }
+        figure:nth-of-type(1) .bar .skillsVal{width:60%;}
+        figure:nth-of-type(2) .bar .skillsVal{width:55%;}
+        figure:nth-of-type(3) .bar .skillsVal{width:50%;}
+        figure:nth-of-type(4) .bar .skillsVal{width:35%;}
+        figure:nth-of-type(5) .bar .skillsVal{width:35%;}
+        figure:nth-of-type(6) .bar .skillsVal{width:20%;}
+        h3{
+            margin-top:30px;
+            font-size:1.8rem;
+        }
+        .doTitle{margin-top:145px;}
+        .doContent{
+            font-size:1.2rem;
+            color:#999;
+        }
+
+        $icons : (
+            1:'school',
+            2:'science',
+            3:'directions_car'
+        );
+        @each $idx, $value in $icons{
+            .whereContent li:nth-of-type(#{$idx})::before{
+                font-family:'Material Icons';
+                font-size:1.5rem;
+                content:$value;
+                display:inline-block;
+                margin:10px;
+            }
+        }
+        .whereContent{
+            margin-top:20px;
+            color:#999;
+        }
+    }
+}
+
+@media (max-width:1540px){
+    .contAbout .contLeftAbout{
+        padding:50px 20px;
+        height:608px;
+        .whoIam{
+            margin:60px 0 30px;
+            font-size:1.3rem;
+        }
+        .whoIamContent{font-size:1.5rem;}
+        .likeImg{
+            margin-top:60px;
+            span{
+                width:130px; 
+                height:130px;
+                font-size:0.8rem;
+            }
+            span:nth-of-type(1){margin:0 110px;}
+            span:nth-of-type(2){margin:0 30px;}
+        }
+    }
+    .contAbout .contRightAbout{
+        padding:50px 20px;
+        .doTitle{margin-top:100px;}
+        .doContent{word-break:keep-all;}
+        h3{font-size:1.5rem;}
+        .doContent{font-size:1rem;}
+    }
+}
+
+@media(max-width:1440px){
+    header{background:none;}
+    .contAbout{
+        width:70%;
+        .contLeftAbout{
+            h2{font-size:2rem;}
+            .whoIam{font-size:1.1rem;}
+            .whoIamContent{font-size:1.3rem;}
+        }
+    }
+}
+@media(max-width:1340px){
+    header{background:none;}
+    .contAbout {
+        display: block;
+        width:70vw;
+        .contLeftAbout{
+            width:95%;
+            position:static;
+            height:auto;
+            .whoIam{word-break:keep-all;}
+            .whoIamContent{display:flex;}
+            // .whoIamContent br{display: inline;}
+            .likeImg{
+                @include flexCenter;
+                span{margin:0;}
+                span:nth-of-type(1){margin:0;}
+                span:nth-of-type(2){margin:0 50px;}
+            }
+        }
+        .contRightAbout{
+            width:95%;
+            .doTitle{margin:0;}
+        }
+    }
+}
+@media (max-width:1240px){ 
+    .contAbout {width:65vw; } 
+    header{background:none;}
+}
+@media (max-width:1024px) {
+    .headerBgGray{background:#888;}
+    .contAbout{
+        width:80%;
+        margin:20% 10%;
+        display:flex;
+        justify-content: center;
+        flex-wrap:wrap;
+        padding:0px;
+        .contLeftAbout{
+            width:100%;
+            padding:0px;
+        }
+        .contRightAbout{
+            width:100%;
+            padding:0px;
+            margin:0px;
+            margin-top:100px;
+            figure img{width:4.5vw; height:4.5vw;}
+        }
+    }
+/* // index에만 background none처리, class 이름 변경
+    header{
+        background:#888;
+        top:auto;
+    }
+*/
+}
+
+@media (max-width:640px){
+    .contAbout .contLeftAbout .likeImg {
+        span{
+            width:100px;
+            height: 100px;
+            font-size: 0.5rem;
+        }
+        span:nth-of-type(2){margin:0 30px;}
+    }
+    .contAbout{
+        margin-top:40vw;
+        .contRightAbout {
+            figure img{width:6vw; height:6vw;}
+            figure:nth-of-type(3) .bar .skills{
+                font-size:0.5rem;
+                // height:42px;
+                line-height: 2.9rem;
+            }
+        }
+    }
+    footer{margin-top:50px;}
+}
+
+@media (max-width:500px) {
+    .contAbout .contRightAbout figure img{width:7vw; height:7vw;}
+    
+}
+// .headerBgGray{background:gray;}

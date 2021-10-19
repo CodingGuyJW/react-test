@@ -1,0 +1,98 @@
+@import "_common.scss";
+@import url(https://fonts.googleapis.com/css?family=Baloo+Paaji);
+
+/* index.scss */
+// variables
+$primary-color: #1e90ff ;
+$secondary-color: #ffe221;
+$tertiary-color: #ffffff;
+
+//
+.contIndex{   
+    #db,#myadmin{visibility: hidden;}
+    #divDB{
+        position:absolute;
+        top:0;left:0;
+    }
+    #divMyadmin{
+        position: absolute;
+        top:0; right:0;
+    } 
+
+    height:937px;
+    display:flex;
+    justify-content:center;
+    align-items: flex-end;
+    flex-direction:column;
+    position:relative;
+    pointer-events:none;
+    .greeting{
+        margin-right:500px;
+        font-size:5rem;
+        pointer-events: visible;
+        //cursor: pointer;
+    }
+    .iam{
+        margin-right:500px;
+        font-size: 2.5rem;
+    }
+    .coverLetter{
+        position:absolute;
+        right:70px; bottom:50px;
+        display:flex;
+        .downTextCont{
+            font-weight:bold;
+        }
+        .downTextCont small{
+            display:inline-block;
+            margin-bottom:5px;
+            color:rgb(120,120,120);
+        }
+        .downBtn{
+            @include flexCenter;
+            width:50px;
+            height:50px;
+            border-radius:30px;
+            margin-left:20px;
+            font-size:1.5rem;
+            transform:rotate(90deg);
+            background:#777;
+            color:#fff;
+            font-weight: 100;
+        }
+    }
+}
+
+// media query
+@media(max-width:1540px){
+    .greeting, .iam{margin-right:400px !important;}
+    .contIndex{height:748px;}
+}
+@media(max-width:1540px){.contIndex{height:721px;}}
+
+$i: 1;
+$px: 50;
+@while $i<7{
+    @media(max-width:1500px -$i*$px){
+        .greeting, .iam{margin-right:400px - $i*$px !important;}
+    }
+    $i:$i+1;
+}
+
+@media(max-width:1024px){
+    .contIndex{
+        height:657px;
+        .greeting{font-size:8vw;}
+        .iam{font-size:4vw;}
+    }
+}
+
+@media(max-width:425px){
+    .contIndex{
+        height:600px;
+    }
+}
+
+@media(max-width:375px){
+    .contIndex{overflow: hidden;}
+}
